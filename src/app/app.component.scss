@@ -1,0 +1,10 @@
+.grad {
+  height: 55px;
+  background-color: cadetblue; /* For browsers that do not support gradients */
+  background-image: linear-gradient(90deg, cadetblue, #8376a2); /* Standard syntax (must be last) */
+}
+
+.heading{
+    text-align:center;
+    padding-top: 10px;
+}

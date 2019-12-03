@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { QuestionListComponent } from './question-list/question-list.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CountdownModule } from 'ngx-countdown';
 @NgModule({
   declarations: [
     AppComponent,
@@ -13,6 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    CountdownModule,
     AppRoutingModule,
     HttpClientModule
   ],

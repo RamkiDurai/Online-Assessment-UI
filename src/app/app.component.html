@@ -2,5 +2,6 @@
    <!-- <img src="../assets/image/stglogo.png"  width="65px" height="55px"/>  -->
   <h2 class="heading">Online Assessment - System Technology Group, INC. (STG)</h2>
 </div>
-<div></div>
+<!-- (event)="handleEvent($event)" -->
+<div class="timer"><span style="padding-right:20px">Time Duration:</span><countdown #cd [config]="config" (event)="handleEvent($event)"></countdown></div>
 <router-outlet></router-outlet>

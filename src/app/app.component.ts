@@ -8,7 +8,7 @@ import { CountdownComponent, CountdownConfig } from 'ngx-countdown';
 })
 export class AppComponent {
   @ViewChild('cd', { static: false }) private countdown: CountdownComponent;
-  config: CountdownConfig = { leftTime: 1800, notify: [120] ,format : 'mm:ss' };
+  config: CountdownConfig = { leftTime: 300, notify: [120] ,format : 'mm:ss' };
   // formate : CountdownConfig = {}
   title = 'Online-Assessment-UI';
   constructor(){

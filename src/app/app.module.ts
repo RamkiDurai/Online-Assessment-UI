@@ -8,11 +8,13 @@ import { HttpClientModule } from '@angular/common/http';
 import { CountdownModule } from 'ngx-countdown';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ExamResultComponent } from './exam-result/exam-result.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    QuestionListComponent
+    QuestionListComponent,
+    ExamResultComponent
   ],
   imports: [
     BrowserModule,

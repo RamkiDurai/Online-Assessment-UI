@@ -1,45 +1,49 @@
 <div class="contianer">
-    <!-- <div class="row"> -->
-        <div class="card">
-           <div class="card-body" style="margin-bottom:10%">
-               <form [formGroup]="questionform">
-               <div *ngFor="let question of questionlist | paginate: config">
-                 <strong> Question: {{pageCount}} 
+    <div class="card">
+        <div class="card-body" style="margin-bottom:3%">
+            <form [formGroup]="questionform">
+                <div *ngFor="let question of questionlist | paginate: config">
+                    <strong> Question: {{pageCount}} 
                      <div>
                      {{question.question}}
                      </div>
-                    {{question.questionId}}
-                    <div>
-                        <input id="{{question.questionId}}_answer1" type="radio" formControlName="{{question.questionId}}" value="{{question.answerList[0]}}">
-                        <label for="{{question.questionId}}_answer1">{{question.answerList[0].answer}}</label>
+                     </strong>
+                    <span style="padding-left: 1px;">
+                    <div *ngFor="let answer of question.answerList;let i = index">
+                        <input style="cursor: pointer;" id="{{question.questionId}}_answer{{i}}" type="radio" formControlName="{{question.questionId}}_answer" [value]="answer">
+                        <label style="cursor: pointer;" for="{{question.questionId}}_answer{{i}}">{{answer.answer}}</label>
                     </div>
-                    <div>
-                        <input id="{{question.questionId}}_answer2" type="radio" formControlName="{{question.questionId}}" value="{{question.answerList[1]}}">
-                        <label for="{{question.questionId}}_answer2">{{question.answerList[1].answer}}</label>
-                    </div>
-                    <div>
-                        <input id="{{question.questionId}}_answer3" type="radio" formControlName="{{question.questionId}}" value="{{question.answerList[2]}}">
-                        <label for="{{question.questionId}}_answer3">{{question.answerList[2].answer}}</label>
-                    </div>
-                    <div>
-                        <input id="{{question.questionId}}_answer4" type="radio" formControlName="{{question.questionId}}" value="{{question.answerList[3]}}">
-                        <label for="{{question.questionId}}_answer4">{{question.answerList[3].answer}}</label>
-                    </div>
-                    <!-- <div *ngFor="let answer of question.answerList">
-                         <input id="answer" type="radio" value="{{answer}}">
-                     {{answer.answer}}
-                     </div> -->
-                </strong>
-               </div>
-               </form>
+
+                     <!-- <div>
+                        <input style="cursor: pointer;" id="{{question.questionId}}_answer1" type="radio" formControlName="{{question.questionId}}_answer" [value]="question.answerList[0]">
+                        <label style="cursor: pointer;" for="{{question.questionId}}_answer1">{{question.answerList[0].answer}}</label>
+                     </div>
+                     <div>
+                        <input style="cursor: pointer;" id="{{question.questionId}}_answer2" type="radio" formControlName="{{question.questionId}}_answer" [value]="question.answerList[1]">
+                        <label style="cursor: pointer;" for="{{question.questionId}}_answer2">{{question.answerList[1].answer}}</label>
+                     </div>
+                     <div>
+                        <input style="cursor: pointer;" id="{{question.questionId}}_answer3" type="radio" formControlName="{{question.questionId}}_answer" [value]="question.answerList[2]">
+                        <label style="cursor: pointer;" for="{{question.questionId}}_answer3">{{question.answerList[2].answer}}</label>
+                     </div>
+                     <div>
+                        <input style="cursor: pointer;" id="{{question.questionId}}_answer4" type="radio" formControlName="{{question.questionId}}_answer" [value]="question.answerList[3]">
+                        <label style="cursor: pointer;" for="{{question.questionId}}_answer4">{{question.answerList[3].answer}}</label>
+                     </div>  -->
+                    </span>
+               
+                </div>
+            </form>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6">
+                <span style="text-align: left;" *ngIf="pageCount > 1"><button class="btn-grad"  (click)="pagePervious()">Previous</button></span>
             </div>
-            <div style="text-align: center;" *ngIf="collection.count != pageCount">
-            <button class="btn-grad" (click)="pageChanged()">Next</button>
-            </div>
-            <div style="text-align: center;" *ngIf="collection.count == pageCount">
-            <button class="btn-grad-submit" (click)="pageChanged()">Submit Test</button>
+            <div class="col-sm-6" style="text-align: right;">
+                <span *ngIf="collection.count != pageCount"><button class="btn-grad"   (click)="pageNext()">Next</button></span>
+                <span *ngIf="collection.count == pageCount"> <button class="btn-grad-submit" (click)="onSubmitExam()">Submit</button></span>
             </div>
         </div>
-       <!-- <p>question-list works!</p> -->
-    <!-- </div> -->
+    </div>
 </div>
